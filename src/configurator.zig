@@ -71,7 +71,13 @@ pub const configurator = struct {
         }
         self.roblox_log_dir = try list.toOwnedSlice(self.allocator);
         self.roblox_log_dir = try self.allocator.realloc(self.roblox_log_dir, self.roblox_log_dir.len - 1);
-        std.log.info("Configuration successfuly loaded", .{});
+
+        const chr: u8 = switch (builtin.os.tag) {
+            .windows => '\\',
+            else => '/',
+        };
+        if (std.mem.findScalar(u8, self.roblox_log_dir, chr) == null)
+            std.log.info("Configuration successfuly loaded", .{});
     }
 
     pub fn deinit(self: *@This()) void {
