@@ -38,7 +38,8 @@ pub fn main(init: std.process.Init) !void {
     _ = try s_log._readfile(s_log.full_path);
     std.log.debug("----------------\n", .{});
     while (!s_log.check_leave()) {
-        biome = try s_log.extractbiome(try s_log._readfile(s_log.full_path));
+        biome = try init.gpa.dupe(u8, try s_log.extractbiome(try s_log._readfile(s_log.full_path)));
+        defer init.gpa.free(biome.?);
         std.log.info("biome {s} extracted", .{biome.?});
         if (!std.mem.eql(u8, biome.?, last_biome)) {
             std.log.info("New biome detected !", .{});
