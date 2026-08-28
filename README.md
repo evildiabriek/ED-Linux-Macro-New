@@ -1,7 +1,7 @@
 # ED Linux Macro (new version)
 
 j'ai refait ma macro Sol's RNG, anciennement en C, désormais en zig.  
-! VERSION LINUX TESTE UNIQUEMENT !
+! VERSION LINUX TEST UNIQUEMENT !
 Si vous parsez le code, vous verai que il y a des portions de code pensait pour fonctionné sous windows,  
 c'est prévue, mais pour l'instant je ne peux pas pour windows
 
