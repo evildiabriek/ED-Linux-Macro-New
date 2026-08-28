@@ -10,7 +10,7 @@ pub const EError = enum {
 
 const _errortab = std.EnumArray(EError, []const u8).init(.{
     .LogsDontContains = "Logs dont contains the researched word",
-    .LenReachedDestLen = "The len is superior or equal then dest.len",
+    .LenReachedDestLen = "The len is superior then dest.len",
     .HomeVariableEnvironnementDontExist = "The variable HOME or USERPROFILE doesnt exit",
     .RobloxLogDirNotValide = "Logs dont contain obligatoire charactere (/ or \\)",
     .VenvDoesntExist = "PyHandler need a venv at path '.venv'",

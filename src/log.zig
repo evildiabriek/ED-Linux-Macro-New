@@ -23,7 +23,7 @@ pub const logger = struct {
     }
 
     fn _strncpy_delim(dest: []u8, src: string, delim: u8, len: usize) !void {
-        if (len >= dest.len) EErr.print_error(EErr.EError.LenReachedDestLen, "-", true);
+        //if (len > dest.len) EErr.print_error(EErr.EError.LenReachedDestLen, "-", true);
         blk: for (src, 0..len) |chr, idx| {
             if (chr == delim) break :blk;
             dest[idx] = src[idx];

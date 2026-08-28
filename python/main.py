@@ -5,6 +5,8 @@ import sys
 import requests
 import re
 
+macro_icon = "https://raw.githubusercontent.com/evildiabriek/ED-Linux-Macro-New/refs/heads/master/EdLInuxMacro.png"
+
 def parse_config(filepath):
     webhooks = []
     private_server = None
@@ -43,7 +45,7 @@ windy_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", 
 
 windy_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -61,7 +63,7 @@ snowy_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", 
 
 snowy_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -79,7 +81,7 @@ rainy_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", 
 
 rainy_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -97,7 +99,7 @@ sandtorm_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})
 
 sandtorm_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -115,7 +117,7 @@ hell_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", i
 
 hell_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -133,7 +135,7 @@ starfall_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})
 
 starfall_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -151,7 +153,7 @@ heaven_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})",
 
 heaven_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -169,7 +171,7 @@ corruption_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url
 
 corruption_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -187,7 +189,7 @@ null_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", i
 
 null_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -207,7 +209,7 @@ dreamspace_embed.set_image(url="https://c.tenor.com/ijsnliG5ZegAAAAd/tenor.gif")
 
 dreamspace_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -227,7 +229,7 @@ glitched_embed.set_image(url="https://c.tenor.com/pkhxZKY6augAAAAC/tenor.gif")
 
 glitched_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -247,7 +249,7 @@ cyberspace_embed.set_image(url="https://c.tenor.com/L942HwJ-GSoAAAAC/tenor.gif")
 
 cyberspace_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -265,7 +267,7 @@ singularity_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_ur
 
 singularity_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -283,7 +285,7 @@ graveyard_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url}
 
 graveyard_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -301,7 +303,7 @@ pumpkin_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})"
 
 pumpkin_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -319,7 +321,7 @@ blazing_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})"
 
 blazing_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -337,7 +339,7 @@ blood_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", 
 
 blood_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -355,7 +357,7 @@ aurora_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})",
 
 aurora_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -373,7 +375,7 @@ eggland_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})"
 
 eggland_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -391,7 +393,7 @@ realm_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", 
 
 realm_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -409,7 +411,7 @@ thenull_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})"
 
 thenull_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -427,7 +429,7 @@ citadel_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})"
 
 citadel_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -445,7 +447,7 @@ redmoon_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})"
 
 redmoon_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -465,7 +467,7 @@ unknown_embed.set_image(url="https://c.tenor.com/jrwILOUFYhsAAAAC/tenor.gif")
 
 unknown_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -483,7 +485,7 @@ mari_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", i
 
 mari_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -503,7 +505,7 @@ jester_embed.set_image(url="https://media.tenor.com/c-EW0prJf-8AAAAm/i-just-hit-
 
 jester_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -521,7 +523,7 @@ rin_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", in
 
 rin_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 #---------------------------------------------------------------------------------------
@@ -539,7 +541,7 @@ normal_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})",
 
 normal_embed.set_footer(
         text=f"ED Linux Macro | {version_macro}",
-        icon_url="https://i.pinimg.com/736x/1b/2a/79/1b2a797c54bcb5c23556ab6efb489e0d.jpg"
+        icon_url=macro_icon
     )
 
 wh_obj = []
