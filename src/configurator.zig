@@ -65,10 +65,14 @@ pub const configurator = struct {
 
         var idx = std.mem.find(u8, self.filebuf, "[rld]>");
         idx.? += 6;
-        for (self.filebuf[idx.?..]) |byte| blk: {
+        blk: for (self.filebuf[idx.?..]) |byte| {
             if (byte == '<') break :blk;
             try list.append(self.allocator, byte);
         }
+        try switch (builtin.os.tag) {
+            .windows => list.append(self.allocator, '\\'),
+            else => list.append(self.allocator, '/'),
+        };
         self.roblox_log_dir = try list.toOwnedSlice(self.allocator);
         self.roblox_log_dir = try self.allocator.realloc(self.roblox_log_dir, self.roblox_log_dir.len - 1);
 

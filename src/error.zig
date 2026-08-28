@@ -5,6 +5,7 @@ pub const EError = enum {
     LenReachedDestLen,
     HomeVariableEnvironnementDontExist,
     RobloxLogDirNotValide,
+    VenvDoesntExist,
 };
 
 const _errortab = std.EnumArray(EError, []const u8).init(.{
@@ -12,6 +13,7 @@ const _errortab = std.EnumArray(EError, []const u8).init(.{
     .LenReachedDestLen = "The len is superior or equal then dest.len",
     .HomeVariableEnvironnementDontExist = "The variable HOME or USERPROFILE doesnt exit",
     .RobloxLogDirNotValide = "Logs dont contain obligatoire charactere (/ or \\)",
+    .VenvDoesntExist = "PyHandler need a venv at path '.venv'",
 });
 
 pub fn print_error(eerr: EError, note: []const u8, exit: bool) void {

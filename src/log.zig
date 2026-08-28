@@ -15,14 +15,14 @@ pub const logger = struct {
         return .{
             .allocator = gpa,
             .io = io,
-            .full_path = logpath,
+            .full_path = try std.fmt.allocPrint(gpa, "{s}{s}", .{ logpath, "latest.log" }),
             .vectorbuf = undefined,
             .filebuf = try gpa.alloc(u8, 1),
             .biome = try gpa.alloc(u8, 1),
         };
     }
 
-    fn _strncpy_delim(_: @This(), dest: []u8, src: string, delim: u8, len: usize) !void {
+    fn _strncpy_delim(dest: []u8, src: string, delim: u8, len: usize) !void {
         if (len >= dest.len) EErr.print_error(EErr.EError.LenReachedDestLen, "-", true);
         blk: for (src, 0..len) |chr, idx| {
             if (chr == delim) break :blk;
@@ -30,7 +30,7 @@ pub const logger = struct {
         }
     }
 
-    fn _readfile(self: *@This(), filepath: string) !string {
+    pub fn _readfile(self: *@This(), filepath: string) !string {
         const file = try std.Io.Dir.openFileAbsolute(self.io, filepath, .{ .mode = .read_only });
         defer file.close(self.io);
         const filesize = try file.length(self.io);
@@ -46,14 +46,21 @@ pub const logger = struct {
 
     pub fn check_leave(self: *@This()) bool {
         const leave = std.mem.findLast(u8, self.filebuf, "DisconnectClientInitiated");
-        const join = std.mem.findLast(u8, self.filebuf, "Joining game '30aee394-bcef-4f38-bda5-fb21ccb455fb' place 15532962292");
-        std.log.info("Check if the player is on the game...");
-        if (leave == null) return false;
+        const join = std.mem.findLast(u8, self.filebuf, "place 15532962292");
+        std.log.info("Check if the player is on the game...", .{});
         if (join == null) {
             EErr.print_error(EErr.EError.LogsDontContains, "Logs can crash, restart your client", true);
             return true;
         }
-        if (join.? > leave.?) return false;
+        if (leave == null) {
+            std.log.info("Player never leave", .{});
+            return false;
+        }
+        if (join.? > leave.?) {
+            std.log.info("Player is on game !", .{});
+            return false;
+        }
+        std.log.info("Player leave", .{});
         return true;
     }
 
@@ -78,6 +85,7 @@ pub const logger = struct {
     pub fn deinit(self: *@This()) void {
         self.allocator.free(self.filebuf);
         self.allocator.free(self.biome);
+        self.allocator.free(self.full_path);
         std.log.info("Deinited logger", .{});
     }
 };
