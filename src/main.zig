@@ -34,14 +34,11 @@ pub fn main(init: std.process.Init) !void {
     std.log.info("s_log ({s}) initialized", .{@typeName(@TypeOf(s_log))});
     defer s_log.deinit();
     std.log.info("defer deinit s_log", .{});
-    std.log.debug("{s}", .{s_log.full_path});
     _ = try s_log._readfile(s_log.full_path);
-    std.log.debug("----------------\n", .{});
     while (!s_log.check_leave()) {
         biome = try init.gpa.dupe(u8, try s_log.extractbiome(try s_log._readfile(s_log.full_path)));
-        defer init.gpa.free(biome.?);
-        std.log.info("biome {s} extracted", .{biome.?});
         if (!std.mem.eql(u8, biome.?, last_biome)) {
+            std.log.info("biome {s} extracted", .{biome.?});
             std.log.info("New biome detected !", .{});
             try s_py.changeargv(biome.?);
             try s_py.execute();
@@ -49,5 +46,6 @@ pub fn main(init: std.process.Init) !void {
             init.gpa.free(last_biome);
             last_biome = try init.gpa.dupe(u8, biome.?);
         }
+        init.gpa.free(biome.?);
     }
 }

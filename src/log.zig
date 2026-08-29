@@ -22,12 +22,15 @@ pub const logger = struct {
         };
     }
 
-    fn _strncpy_delim(dest: []u8, src: string, delim: u8, len: usize) !void {
+    fn _strncpy_delim(dest: []u8, src: string, delim: u8, len: usize) !usize {
         //if (len > dest.len) EErr.print_error(EErr.EError.LenReachedDestLen, "-", true);
-        blk: for (src, 0..len) |chr, idx| {
+        var idx: usize = 0;
+        blk: for (src, 0..len) |chr, _| {
             if (chr == delim) break :blk;
             dest[idx] = src[idx];
+            idx += 1;
         }
+        return idx;
     }
 
     pub fn _readfile(self: *@This(), filepath: string) !string {
@@ -47,20 +50,20 @@ pub const logger = struct {
     pub fn check_leave(self: *@This()) bool {
         const leave = std.mem.findLast(u8, self.filebuf, "DisconnectClientInitiated");
         const join = std.mem.findLast(u8, self.filebuf, "place 15532962292");
-        std.log.info("Check if the player is on the game...", .{});
+        //std.log.info("Check if the player is on the game...", .{});
         if (join == null) {
             EErr.print_error(EErr.EError.LogsDontContains, "Logs can crash, restart your client", true);
             return true;
         }
         if (leave == null) {
-            std.log.info("Player never leave", .{});
+            //std.log.info("Player never leave", .{});
             return false;
         }
         if (join.? > leave.?) {
-            std.log.info("Player is on game !", .{});
+            //std.log.info("Player is on game !", .{});
             return false;
         }
-        std.log.info("Player leave", .{});
+        //std.log.info("Player leave", .{});
         return true;
     }
 
@@ -72,15 +75,19 @@ pub const logger = struct {
             if (last_idx == null) break :blk;
             last_idx = std.mem.findScalarPos(u8, str, last_idx.?, '"');
             if (last_idx == null) break :blk;
-            self.biome = try self.allocator.realloc(self.biome, 4096);
+            self.allocator.free(self.biome);
+            self.biome = try self.allocator.alloc(u8, 200);
             const src = str[last_idx.? + 1 ..];
-            try _strncpy_delim(self.biome, src, '"', src.len);
-            std.log.info("Biome detected: {s}", .{self.biome});
+            const maxsize = try _strncpy_delim(self.biome, src, '"', src.len);
+            self.biome = try self.allocator.realloc(self.biome, maxsize);
+            //std.log.info("Biome detected: {s}", .{self.biome});
             return self.biome;
         }
         EErr.print_error(EErr.EError.LogsDontContains, "Logs maybe crash, restart your client", true);
         return "for exemple: nothing";
     }
+
+    //pub fn extractmerchant(self: *@This(), str: string) !bool {}
 
     pub fn deinit(self: *@This()) void {
         self.allocator.free(self.filebuf);
