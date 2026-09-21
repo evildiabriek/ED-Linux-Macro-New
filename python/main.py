@@ -602,3 +602,5 @@ else:
 
 for i in wh_obj:
     i.send(embed=emb)
+
+# I'm not a python dev...
