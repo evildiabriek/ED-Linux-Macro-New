@@ -38,7 +38,7 @@ pub fn main(init: std.process.Init) !void {
     _ = try s_log._readfile(s_log.full_path); // read the log file
     while (!s_log.check_leave()) { // Stop if you leave your server
         biome = try init.gpa.dupe(u8, try s_log.extractbiome(try s_log._readfile(s_log.full_path))); // dupe = copy (bc in C/Zig... string are not string: its a array of simple char)
-        if (!std.mem.eql(u8, biome.?, last_biome)) { // Comparing (this word exist ?) last biome and biome (bc the while work 10000+/s)
+        if (!std.mem.eql(u8, biome.?, last_biome)) { // Comparing (this word exist ?) last biome and biome (bc the while work ~1 000 000/s)
             std.log.info("biome {s} extracted", .{biome.?}); // New biome !
             std.log.info("New biome detected !", .{});
             try s_py.changeargv(biome.?); // Change argv for the biome (argv = argument)
