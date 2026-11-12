@@ -121,9 +121,31 @@ pub const File = struct {
         return std.Io.Dir.readFileAlloc(tmpdir, IO, part.@"1", allocator, limit orelse .unlimited);
     }
 
-    pub fn writeFile(path: string) !bool {
+    pub fn writeFile(path: string, content: string) !void {
         if (!self.ifExist(path)) return FsFileError.NotExist;
-        var f = try std.Io.Dir.openFileAbsolute(IO, path, .{});
+        var f = try std.Io.Dir.openFileAbsolute(IO, path, .{ .mode = .read_write });
         defer f.close(IO);
+        var buf: [10524]u8 = undefined;
+        var fw = f.writer(IO, &buf);
+        var fwi = &fw.interface;
+        _ = try fwi.write(content);
+        try fwi.flush();
+    }
+
+    pub fn fileSize(path: string) !usize {
+        const filecontent = try readFile(path, null);
+        defer allocator.free(filecontent);
+        return filecontent.len;
+    }
+
+    pub fn writeFileSeek(path: string, content: string, pos: u64) !void {
+        if (!self.ifExist(path)) return FsFileError.NotExist;
+        var filecontent = try readFile(path, null);
+        defer allocator.free(filecontent);
+        filecontent = allocator.realloc(filecontent, filecontent.len + content.len);
+        for (pos..filecontent.len, 0..) |idxval, idxstr| {
+            filecontent[idxval] = content[idxstr];
+        }
+        writeFile(path, filecontent);
     }
 };
