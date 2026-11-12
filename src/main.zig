@@ -2,7 +2,6 @@ const std = @import("std");
 const cfgu = @import("configurator.zig");
 const lg = @import("log.zig");
 const ph = @import("pyhandler.zig"); // Calm down its just PyHandler
-const zlib = @import("Zlib");
 
 pub fn main(init: std.process.Init) !void {
     std.log.info("Macro started !", .{}); // Log for say macro starting
