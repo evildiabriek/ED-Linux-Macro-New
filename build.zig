@@ -16,4 +16,15 @@ pub fn build(b: *std.Build) !void {
 
     const run_step = b.step("run-macro", "Run the macro");
     run_step.dependOn(&run_exe.step);
+    const raylib_dep = b.dependency("raylib_zig", .{
+        .target = target,
+        .optimize = opti,
+    });
+
+    const raylib = raylib_dep.module("raylib"); // main raylib module
+    const raygui = raylib_dep.module("raygui"); // raygui module
+    const raylib_artifact = raylib_dep.artifact("raylib"); // raylib C library
+    exe.root_module.linkLibrary(raylib_artifact);
+    exe.root_module.addImport("raylib", raylib);
+    exe.root_module.addImport("raygui", raygui);
 }
