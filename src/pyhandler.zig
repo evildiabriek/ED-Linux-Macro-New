@@ -9,13 +9,13 @@ pub const PyHandler = struct {
     scriptname: []const u8,
     proc: std.process.Child,
 
-    pub fn init(io: std.Io, gpa: std.mem.Allocator, srciptname: []const u8, argv: []const u8) !@This() {
+    pub fn init(io: std.Io, gpa: std.mem.Allocator, scriptname: []const u8, argv: []const u8) !@This() {
         std.log.info("Inited PyHandler", .{});
         return .{
             .allocator = gpa,
             .io = io,
             .argv = try gpa.dupe(u8, argv),
-            .scriptname = try gpa.dupe(u8, srciptname),
+            .scriptname = try gpa.dupe(u8, scriptname),
             .proc = undefined,
         };
     }

@@ -48,7 +48,7 @@ pub const logger = struct {
     }
 
     pub fn check_leave(self: *@This()) bool {
-        const leave = std.mem.findLast(u8, self.filebuf, "DisconnectClientInitiated");
+        const leave = std.mem.findLast(u8, self.filebuf, "Client:Disconnect");
         const join = std.mem.findLast(u8, self.filebuf, "place 15532962292");
         //std.log.info("Check if the player is on the game...", .{});
         if (join == null) {

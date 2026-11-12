@@ -544,12 +544,48 @@ normal_embed.set_footer(
         icon_url=macro_icon
     )
 
+#---------------------------------------------------------------------------------------
+
+lost_forest_embed = discord.Embed(
+        title="Biome detected !",
+        description=f"# > Biome started - Lost Forest",
+        color=discord.Color.from_rgb(0, 100, 0),
+        timestamp=datetime.datetime.now()
+    )
+
+lost_forest_embed.set_thumbnail(url="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGd1OW4wdXM0cmliYmJrZDR4OWw4NXpja3p1eTkwbG55YmcyZGFoeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hhuVrK0CAYjGK1EfbX/giphy.gif")
+
+lost_forest_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", inline=True)
+
+lost_forest_embed.set_footer(
+        text=f"ED Linux Macro | {version_macro}",
+        icon_url=macro_icon
+    )
+
+#---------------------------------------------------------------------------------------
+
+radiant_forest_embed = discord.Embed(
+        title="Biome detected !",
+        description=f"# > Biome started - Radiant Forest",
+        color=discord.Color.from_rgb(138, 43, 226),
+        timestamp=datetime.datetime.now()
+    )
+
+radiant_forest_embed.set_thumbnail(url="https://i.pinimg.com/736x/b9/44/06/b944062b7179d42ddf874f2090aa6f42.jpg")
+
+radiant_forest_embed.add_field(name="", value=f"[ᚙᚙᚏ LINK ᚏᚙᚙ]({serv_url})", inline=True)
+
+radiant_forest_embed.set_footer(
+        text=f"ED Linux Macro | {version_macro}",
+        icon_url=macro_icon
+    )
+
 wh_obj = []
 for i in webhooks:
     wh_obj.append(discord.SyncWebhook.from_url(i))
 biome = sys.argv[1]
-emb = windy_embed
-print(biome)
+emb = normal_embed
+print(f"[Python] Receive biome: {biome}")
 
 if biome.find("NORMAL") != -1:
     emb = normal_embed
@@ -577,19 +613,19 @@ elif biome.find("DREAMSPACE") != -1:
     emb = dreamspace_embed
 elif biome.find("GLITCHED") != -1:
     emb = glitched_embed
-elif biome.find("HYPERSPACE") != -1 or biome.find("REALM") != -1:
+elif biome.find("HYPERSPACE") != -1 and biome.find("REALM") != -1:
     emb = realm_embed
-elif biome.find("NULL") != -1 or biome.find("EXISTENCE") != -1:
-    emb = null_embed
-elif biome.find("RED") != -1 or biome.find("MOON") != -1:
+elif biome.find("NULL") != -1 and biome.find("EXISTENCE") != -1:
+    emb = thenull_embed
+elif biome.find("RED") != -1 and biome.find("MOON") != -1:
     emb = redmoon_embed
-elif biome.find("CITADEL") != -1 or biome.find("ORDER") != -1:
+elif biome.find("CITADEL") != -1 and biome.find("ORDER") != -1:
     emb = citadel_embed
 elif biome.find("BLAZING") != -1:
     emb = blazing_embed
 elif biome.find("GRAVEYARD") != -1:
     emb = graveyard_embed
-elif biome.find("PUMKIN") != -1:
+elif biome.find("PUMPKIN MOON") != -1:
     emb = pumpkin_embed
 elif biome.find("AURORA") != -1:
     emb = aurora_embed
@@ -597,6 +633,12 @@ elif biome.find("BLOOD") != -1:
     emb = blood_embed
 elif biome.find("EGGLAND") != -1:
     emb = eggland_embed
+elif biome.find("LOST FOREST") != -1:
+    emb = lost_forest_embed
+elif biome.find("RADIANT FOREST") != -1:
+    emb = radiant_forest_embed
+elif biome.find("NULL") != -1:
+    emb = null_embed
 else:
     emb = unknown_embed
 
