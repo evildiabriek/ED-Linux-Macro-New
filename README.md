@@ -40,3 +40,11 @@ For add one webhook, just add a line with `[w]>WEBHOOK<[w]`
 ---
 
 Just run the `.zig_out/bin/EDmacro`
+
+## NDT
+
+---
+
+If the macro immediatly shutdown after starting, quit and restart your server  
+Its because the auto rejoin dont write to log your ingame  
+(for the macro, you quit and dont rejoin)
